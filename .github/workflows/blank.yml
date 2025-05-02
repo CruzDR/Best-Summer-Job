@@ -1,0 +1,79 @@
+import React, { useState } from "react";
+
+function Questionnaire() {
+  const [answers, setAnswers] = useState({
+    A: 0, T: 0, Y: 0, V: 0, F: 0, W: 0, D: 0, O: 0, R: 0, L: 0, C: 0, Z: 0, X: 0, M: 0, Q: 0,
+  });
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setAnswers({ ...answers, [name]: parseFloat(value) });
+  };
+
+  const handleSubmit = () => {
+    // Send data to backend for calculation or calculate locally
+    console.log(answers);
+    // Here you can either use the formula directly or send it to the backend for calculation.
+  };
+
+  return (
+    <form>
+      <h3>Job Importance Questionnaire</h3>
+      <label>Proximity to Jobsite (A + T):</label>
+      <input type="number" name="A" min="0" max="5" onChange={handleChange} />  
+      <input type="number" name="T" min="0" max="5" onChange={handleChange} />
+
+      <label>Pay (Y + V):</label>
+      <input type="number" name="Y" min="0" max="5" onChange={handleChange} />
+      <input type="number" name="V" min="0" max="5" onChange={handleChange} />
+
+      <label>Hours (F + W + D + O):</label>
+      <input type="number" name="F" min="0" max="5" onChange={handleChange} />
+      <input type="number" name="W" min="0" max="5" onChange={handleChange} />
+      <input type="number" name="D" min="0" max="5" onChange={handleChange} />
+      <input type="number" name="O" min="0" max="5" onChange={handleChange} />
+
+      <label>Skills (R + L):</label>
+      <input type="number" name="R" min="0" max="5" onChange={handleChange} />
+      <input type="number" name="L" min="0" max="5" onChange={handleChange} />
+
+      <label>Work Environment (C + Z + X):</label>
+      <input type="number" name="C" min="0" max="5" onChange={handleChange} />
+      <input type="number" name="Z" min="0" max="5" onChange={handleChange} />
+      <input type="number" name="X" min="0" max="5" onChange={handleChange} />
+
+      <label>Additional Factors (M + Q):</label>
+      <input type="number" name="M" min="0" max="5" onChange={handleChange} />
+      <input type="number" name="Q" min="0" max="5" onChange={handleChange} />
+
+      <button type="button" onClick={handleSubmit}>Calculate</button>
+    </form>
+  );
+}
+
+export default Questionnaire;
+
+npm install express
+
+const express = require('express');
+const app = express();
+const port = 3000;
+
+app.use(express.json());
+
+// Endpoint to receive answers and calculate
+app.post('/calculate', (req, res) => {
+    const {
+        A, T, Y, V, F, W, D, O, R, L, C, Z, X, M, Q
+    } = req.body;
+
+    // Perform the calculation
+    const result = (A + T) + (Y + V) + (F + W + D + O) + (R + L) + (C + Z + X) + (M + Q);
+
+    // Send the result back to the frontend
+    res.json({ result });
+});
+
+app.listen(port, () => {
+    console.log(`Server is running on http://localhost:${port}`);
+});
