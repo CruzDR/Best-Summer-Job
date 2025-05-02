@@ -1,88 +1,71 @@
-import React, { useState } from "react";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Survey</title>
+    <style>
+        label, input, button {
+            margin-bottom: 10px;
+        }
+        .result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Job Preference Survey</h1>
+    
+    <form id="surveyForm">
+        <h3>Proximity to Jobsite (J)</h3>
+        <label for="T">Travel Cost (0 < T < 0.5): </label>
+        <input type="number" id="T" min="0" max="0.5" step="0.01" required><br>
+        <label for="A">Accessibility (0 < A < 0.5): </label>
+        <input type="number" id="A" min="0" max="0.5" step="0.01" required><br>
 
-function Questionnaire() {
-  const [answers, setAnswers] = useState({
-    A: 0, T: 0, Y: 0, V: 0, F: 0, W: 0, D: 0, O: 0, R: 0, L: 0, C: 0, Z: 0, X: 0, M: 0, Q: 0,
-  });
+        <h3>Pay (P)</h3>
+        <label for="Y">Frequency of Pay (0, 0.1, 0.2, 0.3): </label>
+        <input type="number" id="Y" step="0.1" min="0" max="0.3" required><br>
+        <label for="V">Amount of Pay (0 < V < 0.7): </label>
+        <input type="number" id="V" min="0" max="0.7" step="0.01" required><br>
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setAnswers({ ...answers, [name]: parseFloat(value) });
-  };
+        <h3>Hours (H)</h3>
+        <label for="F">Flexibility (0 < F < 0.25): </label>
+        <input type="number" id="F" min="0" max="0.25" step="0.01" required><br>
+        <label for="W">Required Hours per Week (0 < W < 0.25): </label>
+        <input type="number" id="W" min="0" max="0.25" step="0.01" required><br>
+        <label for="D">Seasonal (0 or 0.25): </label>
+        <input type="number" id="D" step="0.25" min="0" max="0.25" required><br>
+        <label for="O">Available Hours per Week (0 < O < 0.25): </label>
+        <input type="number" id="O" min="0" max="0.25" step="0.01" required><br>
 
-  const handleSubmit = () => {
-    // Send data to backend for calculation or calculate locally
-    console.log(answers);
-    // Here you can either use the formula directly or send it to the backend for calculation.
-  };
+        <h3>Skills (S)</h3>
+        <label for="R">Required Training (0 or 0.5): </label>
+        <input type="number" id="R" min="0" max="0.5" step="0.5" required><br>
+        <label for="L">Time to Learn (0 < L < 0.5): </label>
+        <input type="number" id="L" min="0" max="0.5" step="0.01" required><br>
 
-  return (
-    <div>
-      <form>
-        <h3>Job Importance Questionnaire</h3>
-        <label>Proximity to Jobsite (A + T):</label>
-        <input type="number" name="A" min="0" max="5" onChange={handleChange} />  
-        <input type="number" name="T" min="0" max="5" onChange={handleChange} />
+        <h3>Work Environment (E)</h3>
+        <label for="C">Clientele (0 < C < 0.3): </label>
+        <input type="number" id="C" min="0" max="0.3" step="0.01" required><br>
+        <label for="Z">Coworkers (0 < Z < 0.4): </label>
+        <input type="number" id="Z" min="0" max="0.4" step="0.01" required><br>
+        <label for="X">Cleanliness (0 < X < 0.3): </label>
+        <input type="number" id="X" min="0" max="0.3" step="0.01" required><br>
 
-        <label>Pay (Y + V):</label>
-        <input type="number" name="Y" min="0" max="5" onChange={handleChange} />
-        <input type="number" name="V" min="0" max="5" onChange={handleChange} />
+        <h3>Additional Factors (M + Q)</h3>
+        <label for="M">M: </label>
+        <input type="number" id="M" min="0" max="1" step="0.01" required><br>
+        <label for="Q">Q: </label>
+        <input type="number" id="Q" min="0" max="1" step="0.01" required><br>
 
-        <label>Hours (F + W + D + O):</label>
-        <input type="number" name="F" min="0" max="5" onChange={handleChange} />
-        <input type="number" name="W" min="0" max="5" onChange={handleChange} />
-        <input type="number" name="D" min="0" max="5" onChange={handleChange} />
-        <input type="number" name="O" min="0" max="5" onChange={handleChange} />
+        <button type="submit">Calculate Result</button>
+    </form>
 
-        <label>Skills (R + L):</label>
-        <input type="number" name="R" min="0" max="5" onChange={handleChange} />
-        <input type="number" name="L" min="0" max="5" onChange={handleChange} />
-
-        <label>Work Environment (C + Z + X):</label>
-        <input type="number" name="C" min="0" max="5" onChange={handleChange} />
-        <input type="number" name="Z" min="0" max="5" onChange={handleChange} />
-        <input type="number" name="X" min="0" max="5" onChange={handleChange} />
-
-        <label>Additional Factors (M + Q):</label>
-        <input type="number" name="M" min="0" max="5" onChange={handleChange} />
-        <input type="number" name="Q" min="0" max="5" onChange={handleChange} />
-
-        <button type="button" onClick={handleSubmit}>Calculate</button>
-      </form>
-
-      {/* You can display the result after calculation */}
-      {/* Example: */}
-      {/* <h3>Calculation Result: {result}</h3> */}
+    <div class="result" id="result">
+        <!-- Result will be displayed here -->
     </div>
-  );
-}
 
-export default Questionnaire;
-
-
-export default Questionnaire;
-
-npm install express
-
-const express = require('express');
-const app = express();
-const port = 3000;
-
-app.use(express.json());
-
-// Endpoint to receive answers and calculate
-app.post('/calculate', (req, res) => {
-    const {
-        A, T, Y, V, F, W, D, O, R, L, C, Z, X, M, Q
-    } = req.body;
-
-    // Perform the calculation
-    const result = (A + T) + (Y + V) + (F + W + D + O) + (R + L) + (C + Z + X) + (M + Q);
-
-    // Send the result back to the frontend
-    res.json({ result });
-});
-
-app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
-});
+    <script src="survey.js"></script>
+</body>
+</html>
