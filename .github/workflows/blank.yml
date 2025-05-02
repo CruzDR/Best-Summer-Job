@@ -6,8 +6,13 @@
     <title>Job Survey</title>
     <style>
         label, input, button {
-            <label for="Y">Frequency of Pay (0, 0.1, 0.2, 0.3): </label>
-<input type="number" id="Y" step="0.1" min="0" max="0.3" required>
+            <label for="Y">Frequency of Pay (Choose 0, 0.1, 0.2, or 0.3): </label>
+<select id="Y" required>
+    <option value="0">0</option>
+    <option value="0.1">0.1</option>
+    <option value="0.2">0.2</option>
+    <option value="0.3">0.3</option>
+</select>
         }
         .result {
             margin-top: 20px;
