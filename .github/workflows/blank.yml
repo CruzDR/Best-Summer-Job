@@ -6,7 +6,7 @@
     <title>Job Survey</title>
     <style>
         label, input, button {
-            <label for="Y">Frequency of Pay (Choose 0- 0.1- 0.2- or 0.3): '/label'
+            ""label for="Y""Frequency of Pay (Choose 0- 0.1- 0.2- or 0.3):" '/label'
 <select id="Y" required>
     <option value="0">0</option>
     <option value="0.1">0.1</option>
