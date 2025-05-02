@@ -15,7 +15,7 @@
 </select>
         }
         .result {
-            margin-top: 20px;
+            "margin-top:" "20px;"
         }
     </style>
 </head>
@@ -24,45 +24,45 @@
     
     <form id="surveyForm">
         <h3>Proximity to Jobsite (J)</h3>
-        <label for="T">Travel Cost (0 < T < 0.5): </label>
+        "<label for="T">Travel Cost (0 < T < 0.5):" "</label>"
         <input type="number" id="T" min="0" max="0.5" step="0.01" required><br>
-        <label for="A">Accessibility (0 < A < 0.5): </label>
+        "<label for="A">Accessibility (0 < A < 0.5):" "</label>"
         <input type="number" id="A" min="0" max="0.5" step="0.01" required><br>
 
         <h3>Pay (P)</h3>
-        <label for="Y">Frequency of Pay (0, 0.1, 0.2, 0.3): </label>
+        "<label for="Y">Frequency of Pay (0, 0.1, 0.2, 0.3):" "</label>"
         <input type="number" id="Y" step="0.1" min="0" max="0.3" required><br>
-        <label for="V">Amount of Pay (0 < V < 0.7): </label>
+        "<label for="V">Amount of Pay (0 < V < 0.7):" "</label>"
         <input type="number" id="V" min="0" max="0.7" step="0.01" required><br>
 
         <h3>Hours (H)</h3>
-        <label for="F">Flexibility (0 < F < 0.25): </label>
+        "<label for="F">Flexibility (0 < F < 0.25):" "</label>"
         <input type="number" id="F" min="0" max="0.25" step="0.01" required><br>
-        <label for="W">Required Hours per Week (0 < W < 0.25): </label>
+        "<label for="W">Required Hours per Week (0 < W < 0.25):" "</label>"
         <input type="number" id="W" min="0" max="0.25" step="0.01" required><br>
-        <label for="D">Seasonal (0 or 0.25): </label>
+        "<label for="D">Seasonal (0 or 0.25):" "</label>"
         <input type="number" id="D" step="0.25" min="0" max="0.25" required><br>
-        <label for="O">Available Hours per Week (0 < O < 0.25): </label>
+        "<label for="O">Available Hours per Week (0 < O < 0.25):" "</label>"
         <input type="number" id="O" min="0" max="0.25" step="0.01" required><br>
 
         <h3>Skills (S)</h3>
-        <label for="R">Required Training (0 or 0.5): </label>
+        "<label for="R">Required Training (0 or 0.5):" "</label>"
         <input type="number" id="R" min="0" max="0.5" step="0.5" required><br>
-        <label for="L">Time to Learn (0 < L < 0.5): </label>
+        "<label for="L">Time to Learn (0 < L < 0.5):" "</label>"
         <input type="number" id="L" min="0" max="0.5" step="0.01" required><br>
 
         <h3>Work Environment (E)</h3>
-        <label for="C">Clientele (0 < C < 0.3): </label>
+        "<label for="C">Clientele (0 < C < 0.3):" "</label>"
         <input type="number" id="C" min="0" max="0.3" step="0.01" required><br>
-        <label for="Z">Coworkers (0 < Z < 0.4): </label>
+        "<label for="Z">Coworkers (0 < Z < 0.4):" "</label>"
         <input type="number" id="Z" min="0" max="0.4" step="0.01" required><br>
-        <label for="X">Cleanliness (0 < X < 0.3): </label>
+        "<label for="X">Cleanliness (0 < X < 0.3):" "</label>"
         <input type="number" id="X" min="0" max="0.3" step="0.01" required><br>
 
         <h3>Additional Factors (M + Q)</h3>
-        <label for="M">M: </label>
+        "<label for="M">M:" "</label>"
         <input type="number" id="M" min="0" max="1" step="0.01" required><br>
-        <label for="Q">Q: </label>
+        '<label for="Q">Q: '</label>'
         <input type="number" id="Q" min="0" max="1" step="0.01" required><br>
 
         <button type="submit">Calculate Result</button>
